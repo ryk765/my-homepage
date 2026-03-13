@@ -6,32 +6,15 @@
     "category": "学会",
     "title": "日本産業技術教育学会(JSTE) 第41回情報分科会研究発表会(高知大学)",
     "detail": "高等学校情報科における教育利用を想定したAI活用能力育成システムと学習内容の検討について発表",
-    "image": "/images/jste2026.jpg",
+    "image": "images/jste2026.jpg",
     "link": "https://sites.google.com/jste.jp/ist-section/news/jste-info-41-announce"
   },
-
-  {
-    "id": "paper-2026-001",
-    "date": "2026.02.15",
-    "category": "業績",
-    "doi": "10.48550/arXiv.2506.08872",
-    "image": "/images/paper001.jpg"
-  },
-
-  {
-    "id": "paper-2025-002",
-    "date": "2025.11.20",
-    "category": "業績",
-    "bibtex": "@article{matsuoka2025support,title={A Computer Vision-Based Support System},author={Matsuoka, Ryuki},journal={Example Journal},year={2025}}",
-    "image": "/images/paper002.jpg"
-  },
-
   {
     "id": "misc-001",
     "date": "2026.03.13",
     "category": "その他",
     "title": "ホームページ公開",
     "detail": "GitHub Pages にて研究紹介サイトを公開しました",
-    "image": "${import.meta.env.BASE_URL}images/HP_image.png"
+    "image": "images/HP_image.png"
   }
 ]

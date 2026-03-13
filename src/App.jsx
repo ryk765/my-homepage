@@ -30,7 +30,7 @@ const FALLBACK_NEWS = [
     category: "その他",
     title: "ホームページ公開",
     detail: "GitHub Pages にて研究紹介サイトを公開しました",
-    image: "${import.meta.env.BASE_URL}images/HP_image.png"
+    image: `${import.meta.env.BASE_URL}images/HP_image.png`
   },
 ];
 
@@ -157,13 +157,20 @@ function normalizePaperNews(item) {
 
 function normalizeNewsItem(item, index) {
   const normalized = item.category === "業績" ? normalizePaperNews(item) : item;
+
+  const imagePath = normalized.image
+    ? normalized.image.startsWith("http")
+      ? normalized.image
+      : `${import.meta.env.BASE_URL}${normalized.image.replace(/^\/+/, "")}`
+    : "";
+
   return {
     id: normalized.id || `news-${index}`,
     date: normalized.date || "yyyy.mm.dd",
     category: normalized.category || "その他",
     title: normalized.title || "タイトル未設定",
     detail: normalized.detail || "詳細未設定",
-    image: normalized.image || "",
+    image: imagePath,
     link: normalized.link || "",
     bibtex: normalized.bibtex || "",
     doi: normalized.doi || "",
@@ -405,27 +412,27 @@ export default function App() {
   const [newsItems, setNewsItems] = useState(FALLBACK_NEWS);
 
   useEffect(() => {
-    let mounted = true;
+  let mounted = true;
 
-    fetch("/news.json")
-      .then((res) => {
-        if (!res.ok) throw new Error("news.json not found");
-        return res.json();
-      })
-      .then((data) => {
-        if (!mounted) return;
-        if (Array.isArray(data)) setNewsItems(data);
-        else if (Array.isArray(data.news)) setNewsItems(data.news);
-      })
-      .catch(() => {
-        if (!mounted) return;
-        setNewsItems(FALLBACK_NEWS);
-      });
+  fetch(`${import.meta.env.BASE_URL}news.json`)
+    .then((res) => {
+      if (!res.ok) throw new Error("news.json not found");
+      return res.json();
+    })
+    .then((data) => {
+      if (!mounted) return;
+      if (Array.isArray(data)) setNewsItems(data);
+      else if (Array.isArray(data.news)) setNewsItems(data.news);
+    })
+    .catch(() => {
+      if (!mounted) return;
+      setNewsItems(FALLBACK_NEWS);
+    });
 
-    return () => {
-      mounted = false;
-    };
-  }, []);
+  return () => {
+    mounted = false;
+  };
+}, []);
 
   const normalizedNews = useMemo(
     () => newsItems.map((item, index) => normalizeNewsItem(item, index)),

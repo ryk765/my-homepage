@@ -30,7 +30,7 @@ const FALLBACK_NEWS = [
     category: "その他",
     title: "ホームページ公開",
     detail: "GitHub Pages にて研究紹介サイトを公開しました",
-    image: "${import.meta.env.BASE_URL}/images/HP_image.png"
+    image: "/images/HP_image.png"
   },
 ];
 

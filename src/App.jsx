@@ -489,13 +489,13 @@ export default function App() {
                 <Newspaper className="h-4 w-4" />
                 お知らせ
               </a>
-              <a
+              {/* <a
                 href="#achievement"
                 className="inline-flex items-center gap-2 rounded-2xl border border-sky-100 bg-white px-4 py-2.5 text-sm font-medium text-slate-600 transition hover:bg-sky-50"
               >
                 <BookOpen className="h-4 w-4" />
                 業績
-              </a>
+              </a> */}
             </div>
           </div>
         </header>

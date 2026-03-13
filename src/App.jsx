@@ -30,7 +30,7 @@ const FALLBACK_NEWS = [
     category: "その他",
     title: "ホームページ公開",
     detail: "GitHub Pages にて研究紹介サイトを公開しました",
-    image: "/images/HP_image.png"
+    image: "${import.meta.env.BASE_URL}images/HP_image.png"
   },
 ];
 
@@ -60,7 +60,7 @@ const CONTACT = {
   googleFormUrl: "https://forms.gle/o5KCveWbf4NHeFqR8",
 };
 
-const categories = ["すべて", "学会", "業績", "その他"];
+const categories = ["すべて", "学会", "その他"];
 
 function cn(...xs) {
   return xs.filter(Boolean).join(" ");

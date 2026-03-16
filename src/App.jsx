@@ -53,7 +53,7 @@ const ACHIEVEMENTS = {
 };
 
 const SOCIETIES = [
-  "日本産業技術教育学会（JSTE）:　学生会員",
+  "日本産業技術教育学会（JSTE）: 学生会員",
 ];
 
 const CONTACT = {
